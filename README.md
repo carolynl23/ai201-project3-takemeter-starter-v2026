@@ -42,6 +42,13 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
+My community is r/nba, Reddit's main NBA basketball forum. Its posts and
+comments mix game-thread reactions, player and team debates, and stat-heavy
+breakdowns. TakeMeter sorts each post by what kind of take it is: an argument
+built on a checkable fact like a stat line, a record or a contract number; a
+confident claim with nothing behind it; or a gut response to a game or play
+that just happened. The goal is to separate posts that actually make a case
+from the noise that fills every thread after a big game. Alot of the comments have numbers to back up their hot takes. Comparing players is a common trend.
 
 
 ---
