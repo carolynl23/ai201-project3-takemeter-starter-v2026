@@ -61,33 +61,45 @@ from the noise that fills every thread after a big game. Alot of the comments ha
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### `analysis`
 
-**Definition:**
-
-**Example 1:**
->
-
-**Example 2:**
->
-
-### `label_two`
-
-**Definition:**
+**Definition:** Makes an argument about basketball backed by a specific, checkable fact (a stat, a contract or salary figure, a named game or play, a quote, a date) where the fact is the reason for the conclusion.
 
 **Example 1:**
->
+> NBA players collectively make 51% of the league's basketball related income. If you drop that number down I fucking promise you the owners wouldn't just hand the surplus to doctors and teachers.
 
 **Example 2:**
->
+> I mean, I think there was definitely some confidence issues for him, he passed up a dunk on Trae Young to win a playoff game. And when he came back he wouldn't even attempt a 3.
+
+### `hot_take`
+
+**Definition:** A confident general claim about a player, team or the league (rankings, "best ever", predictions, "he's washed") with no checkable support offered; strong feeling is not support.
+
+**Example 1:**
+> He's the best basketball player I've ever seen. I don't give a fuck, you all know it's true. The accomplishments, the awards, etc etc will all come but this is the most talented basketball player ever.
+
+**Example 2:**
+> I think he fell out of love with basketball. I don't know how more guys don't. It's like from 12 until forever it's all basketball all the time.
+
+### `reaction`
+
+**Definition:** An immediate emotional response to a play, game or piece of news that just happened, about what the writer saw or felt rather than a claim about the world.
+
+**Example 1:**
+> WHAT THE FUCK MAN. Honestly the saddest NBA news speaking as a person instead of just a fan. One day I read how happy he is and how much he needed the time off to get right physically and mentally. Earns a starting spot. And now this? Insane.
+
+**Example 2:**
+> He crossed the court in 4 dribbles, 4 dribbles!
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `analysis` vs `hot_take`. On r/nba, lots of hot takes come with a number attached.
+
+**Borderline post:**
+> he started his euro step a foot behind the 3 point line... i think that's a first in NBA history.
 
 **The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
+> e.g. "If the post names a specific checkable fact, it's `analysis`, even if the tone is heated."
 
 
 
