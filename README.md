@@ -99,8 +99,9 @@ from the noise that fills every thread after a big game. Alot of the comments ha
 > he started his euro step a foot behind the 3 point line... i think that's a first in NBA history.
 
 **The decision rule I used every time:**
-> e.g. "If the post names a specific checkable fact, it's `analysis`, even if the tone is heated."
+> If I delete the checkable fact, does the post lose its reason? If yes, it's `analysis`, even if the tone is heated. If the number or name is only decoration (a punchline, an aside) and the claim stands just as well without it, it's `hot_take`, or `reaction` if it's about something that just happened.
 
+The euro-step post is `analysis` under this rule. "A foot behind the 3 point line" is the whole reason he thinks it's a first.
 
 
 ---
@@ -131,25 +132,25 @@ from the noise that fills every thread after a big game. Alot of the comments ha
      been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
-> *The post:*
+> *The post:* They got LeBron james for $3M they don't give a shit what bus he rides.
 >
-> *Could have been:*
+> *Could have been:* `analysis` or `reaction`
 >
-> *I chose, because:*
+> *I chose, because:* `reaction`. A salary figure is on my list of checkable facts, which is why I left this one blank on my first pass. But the $3M isn't the reason for any conclusion about basketball. It's the setup for a joke about the news. Take the number out and the post does the same job, so by my decision rule it isn't `analysis`.
 
 **2.**
-> *The post:*
+> *The post:* AAU destroys American players by the time they get to the league
 >
-> *Could have been:*
+> *Could have been:* `hot_take` or `analysis`
 >
-> *I chose, because:*
+> *I chose, because:* `hot_take`. It's a real causal argument about player development, which made me hesitate. But it names no player, stat or study. It's a confident general claim with nothing behind it, which is exactly my `hot_take` definition.
 
 **3.**
-> *The post:*
+> *The post:* Yao had been overworked by the time he got to the NBA. Not sure about the European players but it could be the same as a lot of them go professional earlier than the kids from the US.
 >
-> *Could have been:*
+> *Could have been:* `hot_take` or `analysis`
 >
-> *I chose, because:*
+> *I chose, because:* `analysis`. This was the one pre-label I changed (Claude had `hot_take`). It sits in the same thread as case 2 and makes nearly the same claim. The difference is that it backs the claim with a named player's history, and that example is the reason for the conclusion. The European part is speculation, but the writer hedges it ("Not sure") rather than resting the argument on it.
 
 ---
 
@@ -182,9 +183,9 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* For Claude to pre-label the 195 posts I hadn't labelled cold, using only my three definitions.
+- *What came back:* 90 `hot_take`, 77 `reaction`, 28 `analysis`.
+- *What I changed:* I read all 195 and changed one, the Yao post (hard case 3), from `hot_take` to `analysis`. The named player's history is the reason for the claim, which is the line my decision rule draws.
 
 **Moment 2**
 
@@ -192,7 +193,7 @@ of next unit's variance. -->
 - *What came back:*
 - *What I changed:*
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** Claude pre-labelled 195 of my 215 posts from my label definitions. I read every one and changed one (`note` = `pre-labelled, checked`). I labelled the other 20 myself without any pre-labels (`note` = `cold`). Claude also wrote the script that collected the raw comments from Reddit's public RSS feeds.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
