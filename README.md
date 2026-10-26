@@ -112,18 +112,18 @@ from the noise that fills every thread after a big game. Alot of the comments ha
 
 **Where the posts came from:** Public comments from six r/nba threads in October 2026: the Ben Simmons Achilles injury news, Wemby's euro-step self-lob highlight, Blake Griffin's comments on athletes' egos, the Steve Kerr look-alike clip, an Onion article about LeBron, and the Cavs practicing in Cleveland's Public Hall. Claude wrote a script that pulled 470 comments from Reddit's public RSS feeds (`data/raw_nba_comments.csv`). From those I kept 215 and dropped pure jokes, bare links, and off-topic threads about whether Philadelphia or Cleveland is a nice city. Every post is kept whole.
 
-**How I labelled them:** I labelled the first 20 rows cold, using only my definitions (`note` = `cold`). Claude pre-labelled the other 195 from my definitions, and I read and corrected every one (`note` = `pre-labelled, checked`).
+**How I labelled them:** I labelled the first 20 rows cold, using only my definitions (`note` = `cold`). Claude pre-labelled the other 195 from my definitions, and I read every one (`note` = `pre-labelled, checked`). I agreed with 194 and changed one, from `hot_take` to `analysis` (the post about Yao being overworked before he reached the NBA).
 
-**Counts per label:** <!-- Claude's pre-labels, before my cold 20 and corrections. Update after checking. -->
+**Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-| `hot_take` | 90 (+ cold) |  |
-| `reaction` | 77 (+ cold) |  |
-| `analysis` | 28 (+ cold) |  |
+| `hot_take` | 97 | 45.1% |
+| `reaction` | 85 | 39.5% |
+| `analysis` | 33 | 15.3% |
 | **Total** | 215 | 100% |
 
-**Known weakness: `analysis` is thin.** It's only about 13–15% of the file, below the 20% floor in my criterion 1. I'm keeping the data as collected rather than padding it. All six threads came from r/nba's hot and top pages that week, which were mostly highlights, memes and injury news. Those threads are full of reactions and confident opinions, and stat-backed arguments are rare. Discussion and post-game threads would likely have more `analysis`, but Reddit's rate limit meant I only reached six threads. Expect this to show up next unit: `analysis` will have only about 5–6 posts in the test split, so its F1 will swing between seeds, and the model may lean toward `hot_take` on borderline posts.
+**Known weakness: `analysis` is thin.** It's only about 15% of the file, below the 20% floor in my criterion 1. I'm keeping the data as collected rather than padding it. All six threads came from r/nba's hot and top pages that week, which were mostly highlights, memes and injury news. Those threads are full of reactions and confident opinions, and stat-backed arguments are rare. Discussion and post-game threads would likely have more `analysis`, but Reddit's rate limit meant I only reached six threads. Expect this to show up next unit: `analysis` will have only about 5–6 posts in the test split, so its F1 will swing between seeds, and the model may lean toward `hot_take` on borderline posts.
 
 **Three hard cases**
 
