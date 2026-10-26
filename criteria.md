@@ -54,10 +54,15 @@ whether you hit them:
 ## 1.
 
 <!-- Your criterion. It must name a number. -->
+No label is more than 50% of labels.csv, and no label is under 20%.
 
+**Why this target:** My raw r/nba comments lean hard toward `reaction`
+because most of what I collected came from meme and highlight threads. If I
+labelled them as-is, `reaction` would swamp the set, and a model that always
+guessed it would look accurate without learning anything. 20% of 200 is 40
+posts, which puts about 6 `analysis` posts in the test split. Fewer than that
+and its F1 would be mostly noise between seeds.
 
-
-**Why this target:**
 
 
 
@@ -67,11 +72,9 @@ whether you hit them:
 
 <!-- Your criterion. -->
 
+Overall accuracy is at least 0.70 on the held-out test split, on all three seeds.
 
-
-**Why this target:**
-
-
+**Why this target:** With my 50% cap, a model that always guesses the biggest label can score up to 0.50, so 0.70 has to clearly beat that floor, not just beat the 0.33 of random guessing. My test split is only about 30 posts, so each post is worth about 3 points: 0.70 means 21 of 30 right on every seed. I'd want at least that before I'd trust it to sort a game thread.
 
 ---
 
@@ -79,11 +82,9 @@ whether you hit them:
 
 <!-- Your criterion. -->
 
+Per-label F1 on the held-out test split, on all three seeds: `reaction` at least 0.75, `hot_take` at least 0.60, `analysis` at least 0.55.
 
-
-**Why this target:**
-
-
+**Why this target:** The targets are deliberately uneven. `reaction` is my biggest label and the easiest to spot (all caps, "WHAT THE FUCK MAN", emojis), so it should score highest. `analysis` is my rarest label: only a handful of solid ones turned up in 470 raw comments, so it may have only 6-8 posts in the test split, and one miss costs a lot of F1. I set its target lowest, but still above what guessing would get.
 
 ---
 
@@ -91,11 +92,9 @@ whether you hit them:
 
 <!-- Your criterion. -->
 
+When I label the 30 staff posts under the staff taxonomy, I agree with staff on at least 22 of 30 (0.73).
 
-
-**Why this target:**
-
-
+**Why this target:** The staff notes say a rate in the 70s is normal because several of those posts were picked to be ambiguous. I set mine at the low end of that range because my own hardest boundary, `analysis` vs `hot_take`, is the same one staff's rule 1 covers, and on r/nba I hesitated over stat-laden hot takes more than once. Below 22, I'd suspect my own 200 labels were inconsistent too.
 
 ---
 
@@ -103,11 +102,9 @@ whether you hit them:
 
 <!-- Your criterion. -->
 
+Of the true `analysis` posts in the test split, no more than one in three is predicted as `hot_take`, on every seed (read from the section 7 confusion matrix).
 
-
-**Why this target:**
-
-
+**Why this target:** This is the confusion I expect most, because r/nba hot takes often come with a number attached ("Curry is the greatest shooter ever, 4,000+ threes"). If the model calls more than a third of real arguments hot takes, it has learned "has a number = analysis, otherwise hot_take" or just guesses the bigger label. It hasn't learned whether the fact actually carries the argument.
 
 ---
 
