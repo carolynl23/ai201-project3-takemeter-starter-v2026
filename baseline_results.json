@@ -1,0 +1,199 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 33,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": true,
+  "scores": {
+    "n": 33,
+    "accuracy": 0.3939393939393939,
+    "f1_macro": 0.38184955141476884,
+    "per_label": {
+      "analysis": {
+        "precision": 0.21739130434782608,
+        "recall": 1.0,
+        "f1": 0.3571428571428571,
+        "support": 5
+      },
+      "hot_take": {
+        "precision": 0.75,
+        "recall": 0.4,
+        "f1": 0.5217391304347827,
+        "support": 15
+      },
+      "reaction": {
+        "precision": 1.0,
+        "recall": 0.15384615384615385,
+        "f1": 0.2666666666666667,
+        "support": 13
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "My first reaction was \"Why is Kerr taking a seat with random kids in the stands\" until the camera pan",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I just saw a post by ESPN two hours ago detailing some interviews with the Kings GM and ESPN. Ben simmons literally said, he missed playing basketball, and he knows he was born to play the game. He's never felt this confident in his body in multiple years. This was posted like a. Hour or two before the injury...",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Yeah, this is not funny at all. Just absolutely brutal.",
+      "gold": "reaction",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Arena looks amazing, they should be more creative with arenas",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "This is an important reminder for parasocial fans. Stop putting athletes and celebrities on a pedestal",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "He must have a driver or take a team bus from where he lands. Because the arena doesn't have a helipad. The team offices and training facility is in Camden, 15 minutes or so away by car",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Yep, that's it. Hukporti's was in the first 4 minutes of preseason.\r\n It's especially brutal seeing this happen to these guys who don't exactly have great footing in the league. Oweh's a second rounder, two-way guy trying to crack the rotation, hasn't even debuted yet. Simmons trying to make it back. Obviously anyone tearing an Achilles sucks, but the situations around them make these 3 so much worse.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "That really sucks. \r\n That's what happens when you take time off, though. It happened the first time with his back, and now again with his achilles. It is really, really damn hard to get back into basketball shape after losing it when you're as big and fast as he is. It's like walking a tightrope.\r\n Edit: went through a similar experience myself. Unique athletes are unique for a reason. People aren't really supposed to be able to move like he does at that size.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Am I taking crazy pills? He's clearly looking at his bench coaches and isn't even aware of the guy lol",
+      "gold": "reaction",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "I swear the Onion's baseball headlines have a 100% hit rate",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "He went for a steal and literally has to jump to reach the ball because of Wembys length and height",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I had such a series of thoughts whilst thinking the man in the crowd was Kerr.\r\n \u2019Wow, he can drink during the game??\u2019\r\n \u2019Why is he walking so deep into the crowd?\u2019\r\n \u2019Oh, maybe the beer is for the lookalike because the mystery man really looks like him!\u2019\r\n \u2018Okay, where is he? He\u2019s sitting so far\u2026\u2019\r\n \u2018OhhOOHHHHHHHHH\u2019\r\n Then I laughed.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Cycling sports with the seasons so you work different parts of the body in different ways has to be brought back.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "\"Oh no he picked his dribble up too soon, he gonna travel...ohh.. what the fuck did I just saw?\"",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Something underrated on this clip is he bites on the fake then the dude goes up as he is in the air and still gets blocked, its why he can afford to bite on alot of fakes.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Probably this has less seats than their regular venue would be my guess.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Legit thought this was Steve like going over to the guy in the crowd then the camera panned to actual Steve Kerr",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "NBA arenas should have this kind of character, especially if it speaks to the history of the city",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Doesn't look like a lot seating which is probably a major consideration.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Unpopular opinion but it never seemed like a confidence issue. The guy always had good ball IQ and tenacity on defense and offense (the infamous passed layup makes people think otherwise), it was genuinely his back issues what limited him.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Probably closer to 9k for a basketball game though. That seating count is going to include chairs that they'd put where the court is for concerts. \r\n It also looked like way less than that in this video but I looked up some pictures that made it look quite a bit bigger.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Think he went through a lot of humbling in his career. From being the guy to being traded after signing a contract to Detroit, to realizing his body can't do it anymore in Brooklyn to coming to reality with the fact that he's mentally not there despite having an open door invitation with the 24 Celtics. Going through your whole youth as basically a peak human specimen to realizing that you're just another guy that dribbled a basketball for a living",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "For as much as people like to clown him and make fun of his career, this guy was still a hard worker and had genuine real injuries that halted his career. You gotta feel for him",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I was actually rooting for him this season... fuck injuries man.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "The amount Achilles injuries through out sports as of late has been insane.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Wherever they are, they should play there full time. It looks badass",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "He was absolutely not a hard worker what we doing here.",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Might be it for him. Horrible way to go out.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Supply and demand + the money they bring in\r\n If the demand for doctors and teachers is equivalent to that of the entire entertainment industry and if they bring in the same amount of money as them then, you will see them get paid like professional athletes",
+      "gold": "hot_take",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "Gotta be honest, it\u2019s pretty fucked up that he can do all that",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "3rd Achilles injury before the season even started damn",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "when the clip first started i legit thought it was Steve going to say hi to the lookalike in the crowd lmaooo",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "A 7'4 dude moving like that in transition shouldn't even be mechanically possible.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    }
+  ]
+}

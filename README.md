@@ -217,6 +217,7 @@ of next unit's variance. -->
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+- I predicted that most are going to be hot takes, since you can always argue that an analysis that includes numbers can be a hot take but not necessarily the other way around.
 
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
