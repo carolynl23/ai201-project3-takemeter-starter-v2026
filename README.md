@@ -207,12 +207,21 @@ of next unit's variance. -->
 <!-- Both models on the same posts. `python baseline.py --trained results.json`
      prints this table for you. -->
 
+| Measure | Baseline |
+|---|---|
+| Overall accuracy | 0.394 |
+| Macro F1 | 0.382 |
+| F1 — `analysis` | 0.357 |
+| F1 — `hot_take` | 0.522 |
+| F1 — `reaction` | 0.267 |
+
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.394 | 0.667 | +0.273 |
+| Macro F1 | 0.382 | 0.481 | +0.099 |
+| F1 — `analysis` | 0.357 | 0.000 | -0.357 |
+| F1 — `hot_take` | 0.522 | 0.722 | +0.200 |
+| F1 — `reaction` | 0.267 | 0.720 | +0.453 |
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
@@ -234,28 +243,45 @@ of next unit's variance. -->
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Label balance | none > 50%, none < 20% | `hot_take` 45.1%, `analysis` 15.3% | same file | same file | MISSED |
+| 2. Overall accuracy | ≥ 0.70 | 0.667 | 0.636 | 0.667 | MISSED |
+| 3. Per-label F1 | `reaction` ≥ 0.75, `hot_take` ≥ 0.60, `analysis` ≥ 0.55 | 0.720 / 0.722 / 0.000 | 0.636 / 0.718 / 0.000 | 0.700 / 0.732 / 0.000 | MISSED (only `hot_take` met) |
+| 4. Agreement with staff | ≥ 22 / 30 | not run yet | | | pending |
+| 5. `analysis` called `hot_take` | ≤ 1 in 3 | 4 of 5 | 4 of 5 | 5 of 5 | MISSED |
+
+All three seeds ran on an Apple Silicon GPU (`mps`), torch 2.14.1, `distilbert-base-uncased`, 3 epochs, learning rate 2e-5, batch 16, max length 128. Criterion 3 is listed as `reaction` / `hot_take` / `analysis`.
+
+Full spread table from section 6:
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.667 | 0.636 | 0.667 | 0.030 |
+| Macro F1 | 0.481 | 0.451 | 0.477 | 0.029 |
+| F1 — `analysis` | 0.000 | 0.000 | 0.000 | 0.000 |
+| F1 — `hot_take` | 0.722 | 0.718 | 0.732 | 0.014 |
+| F1 — `reaction` | 0.720 | 0.636 | 0.700 | 0.084 |
+
+Accuracy moved only 3 points across seeds, so the misses aren't a bad draw. They hold on every split.
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
+Seed 42:
+
+| true \ predicted | analysis | hot_take | reaction |
 |---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| **analysis** | 0 | 4 | 1 |
+| **hot_take** | 0 | 13 | 2 |
+| **reaction** | 0 | 4 | 9 |
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
 
+4 of the 5 real `analysis` posts were called `hot_take` and none went the other way. On all three seeds the model never predicted `analysis` once, so it didn't learn my hardest boundary at all and folds every argument into the bigger label. `reaction` leaks the same way (4 to `hot_take` on seed 42, 6 on seeds 7 and 2024), so the model leans toward `hot_take`, my biggest label, whenever it's unsure.
 
 
 ---
