@@ -4,5 +4,5 @@
 # definitions written there. baseline.py reads this file.
 
 analysis: makes an argument about basketball backed by a specific, checkable fact (a stat, a contract or salary figure, a named game or play, a quote, a date) where the fact is the reason for the conclusion
-hot_take: a confident general claim about a player, team or the league (rankings, best ever, predictions) with no checkable support offered; strong feeling is not support
+hot_take: a confident general claim about a player, team or the league (rankings, best ever, predictions, he's washed) with no checkable support offered; strong feeling is not support
 reaction: an immediate emotional response to a play, game or piece of news that just happened, about what the writer saw or felt rather than a claim about the world
