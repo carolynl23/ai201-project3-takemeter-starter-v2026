@@ -246,7 +246,7 @@ of next unit's variance. -->
 | 1. Label balance | none > 50%, none < 20% | `hot_take` 45.1%, `analysis` 15.3% | same file | same file | MISSED |
 | 2. Overall accuracy | ≥ 0.70 | 0.667 | 0.636 | 0.667 | MISSED |
 | 3. Per-label F1 | `reaction` ≥ 0.75, `hot_take` ≥ 0.60, `analysis` ≥ 0.55 | 0.720 / 0.722 / 0.000 | 0.636 / 0.718 / 0.000 | 0.700 / 0.732 / 0.000 | MISSED (only `hot_take` met) |
-| 4. Agreement with staff | ≥ 22 / 30 | not run yet | | | pending |
+| 4. Agreement with staff | ≥ 22 / 30 | 27 / 30 (90%) | same labels | same labels | MET |
 | 5. `analysis` called `hot_take` | ≤ 1 in 3 | 4 of 5 | 4 of 5 | 5 of 5 | MISSED |
 
 All three seeds ran on an Apple Silicon GPU (`mps`), torch 2.14.1, `distilbert-base-uncased`, 3 epochs, learning rate 2e-5, batch 16, max length 128. Criterion 3 is listed as `reaction` / `hot_take` / `analysis`.
@@ -322,7 +322,7 @@ Seed 42:
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** ___ / 30 = ___%
+**Agreement rate:** 27 / 30 = 90%
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -345,22 +345,31 @@ Seed 42:
      what you did across your own 200. -->
 
 **1.**
-> *The post:*
+> *The post:* Everyone blames the hill at 18 miles. I split the field into people who ran the first half under 1:45 and over, and the slowdown after 18 was almost identical for both groups. If the hill were the problem the fast starters would fall apart harder.
 >
-> *Staff said / I said:*
+> *Staff said / I said:* `analysis` / `hot_take`
 >
-> *My call, and why:*
+> *My call, and why:* Staff is right. The conclusion (it isn't the hill) comes after the split and depends on it. Remove the 1:45 comparison and there's no reason left, which is rule 1's test for a load-bearing fact. I read the opening "Everyone blames the hill" as a conclusion already reached and missed that the rest of the post argues for it.
 >
-> *Which pile:*
+> *Which pile:* (a). Rule 1 covered it and I applied it loosely.
 
 **2.**
-> *The post:*
+> *The post:* Three of us ran the same session on the same day, different shoes, within 10 seconds of each other over 5 miles. I'm not saying shoes do nothing, but whatever they do was smaller than the noise between three people.
 >
-> *Staff said / I said:*
+> *Staff said / I said:* `analysis` / `hot_take`
 >
-> *My call, and why:*
+> *My call, and why:* Staff is right. Three runners, 10 seconds and 5 miles are specific and checkable, and the conclusion is drawn straight from them. The writer even limits the claim ("I'm not saying shoes do nothing"), which is arguing, not asserting. I judged whether the evidence was strong enough, but rule 1 only asks whether the fact does the work, and here it does.
 >
-> *Which pile:*
+> *Which pile:* (a). Rule 1 covered it and I applied it loosely.
+
+**3.**
+> *The post:* Every injury thread on this forum is the same injury and the same three replies.
+>
+> *Staff said / I said:* `hot_take` / `reaction`
+>
+> *My call, and why:* Staff is right. "Every injury thread" is a general claim about the world with nothing behind it, and nothing in the post happened to the writer. Rule 2 says that's `hot_take`. I went on the tired, venting tone, but rule 2 says a heated post making a general claim is still `hot_take`.
+>
+> *Which pile:* (a). Rule 2 covered it and I applied it loosely.
 
 **What the pattern in my disagreements tells me:**
 
