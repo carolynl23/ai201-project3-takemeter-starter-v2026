@@ -293,11 +293,11 @@ Seed 42:
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Label balance | none > 50%, none < 20% | MISSED | `analysis` is 15.3% of `labels.csv`. This is a property of the file, so it's the same on every seed. |
+| 2 | Overall accuracy | ≥ 0.70 | MISSED | 0.667, 0.636, 0.667. No seed reached 0.70. |
+| 3 | Per-label F1 | `reaction` ≥ 0.75, `hot_take` ≥ 0.60, `analysis` ≥ 0.55 | MISSED | `hot_take` met on all three seeds (0.718–0.732). `reaction` peaked at 0.720 and `analysis` was 0.000 on every seed. All three parts have to hold. |
+| 4 | Agreement with staff | ≥ 22 / 30 | MET | 27 / 30 from `agreement.py`. |
+| 5 | `analysis` called `hot_take` | ≤ 1 in 3 | MISSED | 4 of 5, 4 of 5 and 5 of 5 from the per-seed confusion matrices, against a limit of 1 in 3. |
 
 **Diagnoses**
 
@@ -309,6 +309,16 @@ Seed 42:
      ⚠️ Use your agreement report as evidence. It is the only instrument you
      have that can tell a LABELLING problem from a MODEL problem, and this
      section is graded on whether you used it that way. -->
+
+**Criteria 2, 3 and 5: the model is undertrained, `analysis` has too few examples, and my own labels lean toward `hot_take` on the `analysis` boundary.** All three misses come from the same behaviour: the model never predicted `analysis` on any seed, and when unsure it falls back to `hot_take`, my biggest label. The confusion matrices show this. Across the three seeds, 13 of 15 real `analysis` posts went to `hot_take` and the other 2 to `reaction`, and 4–6 `reaction` posts per seed did too, which is why `reaction` also missed its F1 target. Three things tell me this is a model problem more than a labelling one:
+
+- **The model is barely more confident than chance.** Its average confidence was about 0.45 both when it was right and when it was wrong, against 0.33 for random guessing on three labels. Three epochs on 149 posts is only about 30 training steps. A model that unsure defaults to the most common label.
+- **`analysis` has only 23 training examples** (5 in the test split), not enough to pull the model off the majority label in that few steps.
+- **My own labels lean the same way on the `analysis`/`hot_take` boundary.** My agreement with staff was 27 of 30 overall, but two of my three disagreements were exactly this pair, both `analysis` → `hot_take`, and both pile (a): the rule covered them and I applied it loosely. Both times I judged whether the fact was convincing instead of whether it carried the argument. If I did that on 2 of the 10 staff `analysis` posts, I likely did it in my own 130 `analysis` and `hot_take` posts too. The one pre-label I corrected (the Yao post) went the same direction. Every real argument mislabelled `hot_take` takes away one of my few `analysis` examples and teaches the model the opposite.
+
+That last point is the one I can fix by relabelling, so it's my improvement. It isn't the whole cause: the baseline, reading only my definitions, scored 0.357 on `analysis`, so the label can be learned, and the low confidence says training is also a factor.
+
+**Criterion 1: the data collection.** `analysis` is 15.3% because the six threads I collected from were highlight, meme and injury-news threads, where stat-backed arguments are rare (see the Known Weakness under The Dataset). It's the same file on every seed, so this was decided before training.
 
 
 
@@ -379,24 +389,46 @@ I can be biased due to not seeing th eentire context of the subreddits
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** I relabelled the `analysis`/`hot_take` boundary. I reread every `analysis` and `hot_take` post that contains a number, quote, or game, season or playoff reference (44 of the 130) and applied my decision rule to each one: delete the fact, and if the post loses its reason, it's `analysis`. **1 row changed out of 44**, and it wasn't on the boundary I was fixing: the post about LeBron eating in the LES went from `analysis` to `reaction`, because it's amusement at something he just noticed, not an argument. No post moved between `analysis` and `hot_take`. New counts: `hot_take` 97 (45.1%), `reaction` 86 (40.0%), `analysis` 32 (14.9%). Training settings and seeds are unchanged.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** The labelling part of my diagnosis for criteria 2, 3 and 5. Two of my three staff disagreements were `analysis` → `hot_take` in pile (a), so I expected to find the same loose calls in my own labels.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Label balance | none > 50%, none < 20% | `hot_take` 45.1%, `analysis` 14.9% | same file | same file | MISSED |
+| 2. Overall accuracy | ≥ 0.70 | 0.758 | 0.667 | 0.606 | MISSED |
+| 3. Per-label F1 | `reaction` ≥ 0.75, `hot_take` ≥ 0.60, `analysis` ≥ 0.55 | 0.828 / 0.812 / 0.000 | 0.727 / 0.718 / 0.000 | 0.600 / 0.683 / 0.000 | MISSED (only `hot_take` met) |
+| 4. Agreement with staff | ≥ 22 / 30 | 27 / 30 (90%) | same labels | same labels | MET |
+| 5. `analysis` called `hot_take` | ≤ 1 in 3 | 3 of 5 | 5 of 5 | 5 of 5 | MISSED |
+
+Same device and settings as the before run (`mps`, torch 2.14.1, 3 epochs, learning rate 2e-5, batch 16). Criterion 3 is listed as `reaction` / `hot_take` / `analysis`.
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.758 | 0.667 | 0.606 | 0.152 |
+| Macro F1 | 0.547 | 0.482 | 0.428 | 0.119 |
+| F1 — `analysis` | 0.000 | 0.000 | 0.000 | 0.000 |
+| F1 — `hot_take` | 0.812 | 0.718 | 0.683 | 0.130 |
+| F1 — `reaction` | 0.828 | 0.727 | 0.600 | 0.228 |
+
+Seed 42 confusion matrix, after:
+
+| true \ predicted | analysis | hot_take | reaction |
+|---|---|---|---|
+| **analysis** | 0 | 3 | 2 |
+| **hot_take** | 0 | 13 | 2 |
+| **reaction** | 0 | 1 | 12 |
 
 **Did it help, and how do I know:**
 
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
+
+No. Every criterion I missed before I still miss, and `analysis` F1 is still 0.000 on every seed: the model never predicts it. Average accuracy went from 0.657 to 0.677, but that isn't the relabel working. Changing one label reshuffles the stratified split, so each seed tested on a different set of 33 posts. Seed 42 went up 9 points, seed 2024 went down 6, and the spread grew from 0.030 to 0.152. That's split noise on a 33-post test set, not improvement. The model's average confidence when right is still about 0.45 on every seed, so it's no more sure than before.
+
+The more useful result is the relabel itself. I reread 44 boundary posts and found no `analysis`/`hot_take` inconsistency. My two loose calls on the staff set didn't show up in my own data, so the labelling part of my diagnosis was wrong, or at least too small to matter. That points back at the other two causes, undertraining and only 23 `analysis` training examples, which this change didn't touch.
 
 
 
