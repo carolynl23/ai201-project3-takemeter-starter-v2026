@@ -189,11 +189,19 @@ of next unit's variance. -->
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Help diagnosing why `analysis` scored 0.000 F1 on every seed, and choosing one fix.
+- *What came back:* Claude pointed at something I hadn't looked at. In `results_three_seeds_before.json`, the model's average confidence was about 0.45 whether it was right or wrong, barely above the 0.33 of guessing on three labels. Its read was that the model was undertrained (about 30 training steps), and it recommended raising the epochs as the one change.
+- *What I changed:* I kept the undertraining evidence in my diagnosis, but chose to relabel the `analysis`/`hot_take` boundary instead, because two of my staff disagreements were loose calls on exactly that pair. Claude pointed out that a relabel wouldn't match a diagnosis that blamed training, so I added the labelling evidence to the diagnosis as a third cause. The relabel changed 1 of 44 posts and didn't help, which is evidence that the undertraining read was the stronger one.
 
 **Pre-labelling disclosure:** Claude pre-labelled 195 of my 215 posts from my label definitions. I read every one and changed one (`note` = `pre-labelled, checked`). I labelled the other 20 myself without any pre-labels (`note` = `cold`). Claude also wrote the script that collected the raw comments from Reddit's public RSS feeds.
+
+**Unit 5 write-up:** Claude drafted my decision rule and the three hard-case write-ups from the labels I'd chosen. I reviewed and approved them.
+
+**Other AI use in unit 6:**
+- **Running the notebook:** my VS Code kernel wouldn't connect, so Claude ran the notebook's sections 1–7 from the project's `.venv` for all three runs (seed 42, three seeds before, and three seeds after).
+- **The staff set:** Claude showed me the 30 staff posts five at a time and saved my labels without suggesting any. After I saw the disagreements, it made the strongest case for each label under the staff rules without saying who was right. The calls and piles are mine, and Claude wrote them up from my answers.
+- **The relabel:** Claude picked out the 44 boundary posts with a mechanical filter (numbers, quotes, game or season words) and showed them to me 10 at a time. Every label decision was mine.
+- **README write-up:** Claude drafted the run log tables, verdicts, diagnoses and the Improvement section from the results files and my choices. I reviewed them before committing.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
