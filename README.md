@@ -372,7 +372,7 @@ Seed 42:
 > *Which pile:* (a). Rule 2 covered it and I applied it loosely.
 
 **What the pattern in my disagreements tells me:**
-
+I can be biased due to not seeing th eentire context of the subreddits
 
 
 ---
@@ -411,6 +411,7 @@ Seed 42:
 **The gap between what I meant my labels to capture and what the model
 learned:**
 <!-- Two sentences. Your confusion matrix is the evidence. -->
+there was context bias between how much I knew and how much the odel knew since sometimes if I didn't see the entire subreddit I assumed it was just a reaction rather than analysis
 
 
 
