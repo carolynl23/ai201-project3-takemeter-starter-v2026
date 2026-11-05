@@ -390,7 +390,7 @@ That last point is the one I can fix by relabelling, so it's my improvement. It 
 > *Which pile:* (a). Rule 2 covered it and I applied it loosely.
 
 **What the pattern in my disagreements tells me:**
-I can be biased due to not seeing th eentire context of the subreddits
+I can be biased due to not seeing the entire context of the subreddits
 
 
 ---
@@ -445,6 +445,7 @@ The more useful result is the relabel itself. I reread 44 boundary posts and fou
 ## What's Still Broken
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
+The labelling part of my diagnosis for criteria 2, 3 and 5. Two of my three staff disagreements were `analysis` → `hot_take` in pile (a), so I expected to find the same loose calls in my own labels.
 
 
 
